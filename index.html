@@ -504,6 +504,569 @@
       font-weight: 700;
     }
 
+
+    /* Final Projects Cards + Beautiful Details Modal */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(217, 231, 255, 0.95);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.08);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -85px;
+      top: -85px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25), rgba(37, 99, 235, 0.08), transparent 70%);
+      transition: transform 0.28s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(37, 99, 235, 0.32);
+      box-shadow: 0 24px 55px rgba(37, 99, 235, 0.16);
+    }
+
+    .project-card:hover::before {
+      transform: scale(1.25);
+    }
+
+    .project-card h3,
+    .project-card p,
+    .project-card ul,
+    .project-card .tag-row,
+    .project-card .project-actions {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .project-card p,
+    .project-card li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .project-card ul {
+      padding-left: 18px;
+      margin-top: 12px;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .project-btn,
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      border: none;
+      padding: 11px 15px;
+      border-radius: 14px;
+      font-weight: 900;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .project-btn {
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      color: #ffffff;
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.16);
+    }
+
+    .project-link {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border);
+      color: var(--blue);
+    }
+
+    .project-btn:hover,
+    .project-link:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .details-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(15, 23, 42, 0.58);
+      backdrop-filter: blur(12px);
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .details-modal.active {
+      display: block;
+    }
+
+    .details-content {
+      width: min(1120px, 96%);
+      margin: 36px auto;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(217, 231, 255, 0.95);
+      border-radius: 32px;
+      box-shadow: 0 30px 85px rgba(15, 23, 42, 0.24);
+      padding: 30px;
+      position: relative;
+      animation: modalSlideZoom 0.38s cubic-bezier(.2,.8,.2,1);
+    }
+
+    @keyframes modalSlideZoom {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 15px;
+      background: var(--blue-3);
+      color: var(--blue);
+      font-size: 25px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .modal-close:hover {
+      transform: rotate(90deg) scale(1.05);
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+    }
+
+    .details-content h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      padding-right: 52px;
+    }
+
+    .details-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .details-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .details-box {
+      background: linear-gradient(135deg, #ffffff, #eff6ff);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .details-box h3 {
+      margin-bottom: 10px;
+    }
+
+    .details-box ul {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .gallery-title {
+      margin: 28px 0 14px;
+      color: var(--text);
+      font-size: 22px;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .project-gallery.one-image {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-card {
+      background: linear-gradient(135deg, #ffffff, #eff6ff);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.10);
+      transform: translateY(0);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      background: #eaf4ff;
+    }
+
+    .project-gallery.one-image .gallery-card img {
+      height: auto;
+      max-height: 620px;
+      object-fit: contain;
+    }
+
+    .gallery-caption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .upload-note {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .projects-grid,
+      .details-layout,
+      .project-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card img {
+        height: 210px;
+      }
+
+      .details-content {
+        padding: 22px;
+      }
+    }
+
+
+    /* Restored Training + Work Experience Sections */
+    .training-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .training-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(217, 231, 255, 0.95);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 42px rgba(37, 99, 235, 0.10);
+      transition: 0.25s ease;
+    }
+
+    .training-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(37, 99, 235, 0.18);
+    }
+
+    .training-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.26), rgba(37, 99, 235, 0.08), transparent 70%);
+    }
+
+    .training-card.featured {
+      border: 2px solid rgba(37, 99, 235, 0.24);
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.92));
+    }
+
+    .training-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .training-card h3,
+    .training-card p,
+    .training-meta,
+    .training-card .project-actions {
+      position: relative;
+      z-index: 1;
+    }
+
+    .training-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .training-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .training-meta {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .training-meta span strong {
+      color: var(--blue);
+    }
+
+    .certificate-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1300;
+      background: rgba(15, 23, 42, 0.62);
+      backdrop-filter: blur(10px);
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .certificate-modal.active {
+      display: block;
+    }
+
+    .certificate-content {
+      width: min(900px, 96%);
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(217, 231, 255, 0.95);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.24);
+      position: relative;
+      text-align: center;
+      animation: modalSlideZoom 0.38s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .certificate-content h2 {
+      margin-bottom: 16px;
+      padding-right: 48px;
+    }
+
+    .certificate-content img {
+      width: 100%;
+      max-height: 640px;
+      object-fit: contain;
+      border-radius: 20px;
+      background: #eff6ff;
+      border: 1px solid var(--border);
+    }
+
+    .certificate-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .experience-summary {
+      background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(239,246,255,0.88));
+      border: 1px solid rgba(217, 231, 255, 0.95);
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 18px 42px rgba(37, 99, 235, 0.10);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-summary::before {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -80px;
+      top: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.26), rgba(37, 99, 235, 0.08), transparent 70%);
+    }
+
+    .experience-summary h3,
+    .experience-summary p,
+    .experience-points,
+    .experience-tags {
+      position: relative;
+      z-index: 1;
+    }
+
+    .experience-summary h3 {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .experience-summary p {
+      color: var(--muted);
+    }
+
+    .experience-points {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .experience-point {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .experience-point span {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 9px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .platform-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(217, 231, 255, 0.95);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
+      transition: 0.25s ease;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 48px rgba(37, 99, 235, 0.16);
+    }
+
+    .platform-head {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .platform-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.18);
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .platform-logo svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .platform-card h3 {
+      font-size: 19px;
+      margin-bottom: 2px;
+    }
+
+    .platform-card small {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .platform-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .experience-layout,
+      .platform-grid,
+      .training-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 900px) {
       .hero,
       .grid-2,
@@ -557,6 +1120,8 @@
           <a href="#usp">USP</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#internships">Training</a>
+          <a href="#experience">Experience</a>
           <a href="#workflow">Workflow</a>
           <a href="#contact">Contact</a>
         </div>
@@ -696,112 +1261,279 @@
       </div>
     </section>
 
+
     <section id="projects">
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <p class="section-subtitle">
-          I worked on 7 projects covering different parts of the data analysis workflow.
+          Selected projects that show my full data workflow: Excel analysis, SQL querying, Python EDA, Power BI dashboards, machine learning, KPI design, and business insight presentation.
         </p>
 
-        <div class="grid grid-2">
-          <article class="card">
-            <h3>1. Sales Analysis Dashboard</h3>
-            <p>Analyzed sales performance, revenue trends, top products, and customer behavior using Excel and Power BI.</p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>1. Restaurant Data Analysis — NTI Final Project</h3>
+            <p>
+              Built a complete restaurant analysis project across Excel, SQL, Python EDA, and Power BI.
+              The project started from understanding and preparing the data, then answering business questions,
+              building pivot analysis, and finally designing interactive dashboards for decision-making.
+            </p>
             <ul>
-              <li>Cleaned raw sales data</li>
-              <li>Created KPIs and interactive visuals</li>
-              <li>Identified best-performing categories and regions</li>
+              <li>Used SQL to query, validate, and analyze restaurant business data</li>
+              <li>Performed Python EDA to explore patterns, clean data, and understand relationships</li>
+              <li>Created Excel pivot tables, slicers, and KPI summaries</li>
+              <li>Designed Power BI dashboard pages for sales, customers, branches, products, and payments</li>
             </ul>
             <div class="tag-row">
-              <span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">Data Cleaning</span>
+              <span class="tag">Excel</span><span class="tag">SQL</span><span class="tag">Python EDA</span><span class="tag">Power BI</span>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn" onclick="openDetailsModal('restaurantModal')">Details</button>
             </div>
           </article>
 
-          <article class="card">
-            <h3>2. BikeStores SQL Analysis</h3>
-            <p>Used SQL to answer business questions related to customers, orders, revenue, stores, staff, brands, and product performance.</p>
+          <article class="project-card">
+            <h3>2. BikeStores SQL Analysis — NTI Final Project</h3>
+            <p>
+              Worked on the BikeStores relational database using SQL Server to answer real business questions
+              about customers, orders, sales revenue, stores, staff, brands, categories, and product performance.
+            </p>
             <ul>
-              <li>Used joins and aggregations</li>
-              <li>Analyzed sales and order status</li>
-              <li>Extracted business insights from relational data</li>
+              <li>Queried sales and production schemas using SQL Server</li>
+              <li>Used JOIN, GROUP BY, HAVING, filtering, aggregations, and ordering</li>
+              <li>Analyzed orders, customers, stores, staff, brands, categories, and products</li>
+              <li>Extracted business insights from sales revenue and order status data</li>
             </ul>
             <div class="tag-row">
-              <span class="tag">SQL</span><span class="tag">SQL Server</span><span class="tag">Business Analysis</span>
+              <span class="tag">SQL</span><span class="tag">SQL Server</span><span class="tag">BikeStores DB</span><span class="tag">Business Analysis</span>
             </div>
           </article>
 
-          <article class="card">
-            <h3>3. Customer Data Cleaning Project</h3>
-            <p>Focused on improving data quality by handling null values, duplicates, inconsistent formats, and wrong date values.</p>
+          <article class="project-card">
+            <h3>4. HR Data Analysis Dashboard</h3>
+            <p>
+              Built an HR analytics dashboard to summarize workforce structure, salaries, branches, jobs,
+              gender distribution, pay type, place of birth, and job distribution by gender.
+            </p>
             <ul>
-              <li>Detected duplicates and missing values</li>
-              <li>Standardized date and text formats</li>
-              <li>Prepared clean data for analysis</li>
+              <li>Created employee and salary KPIs</li>
+              <li>Analyzed gender, pay type, jobs, and branches</li>
+              <li>Built a clean HR dashboard for business understanding</li>
             </ul>
             <div class="tag-row">
-              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Cleaning</span>
+              <span class="tag">Power BI</span><span class="tag">HR Analytics</span><span class="tag">Dashboard</span>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn" onclick="openDetailsModal('hrModal')">Details</button>
             </div>
           </article>
 
-          <article class="card">
-            <h3>4. Power BI Business Report</h3>
-            <p>Built a business intelligence report with filters, slicers, measures, and visual KPIs to track performance clearly.</p>
+          <article class="project-card">
+            <h3>3. BikeStores Data Analysis Dashboard</h3>
+            <p>
+              Built a Power BI dashboard for BikeStores sales performance, combining KPI tracking, territory comparison,
+              product hierarchy analysis, freight analysis, and decomposition tree exploration.
+            </p>
             <ul>
-              <li>Created DAX measures</li>
-              <li>Designed interactive dashboard pages</li>
-              <li>Explained trends and performance gaps</li>
+              <li>Analyzed YTD, QTD, and total sales KPIs</li>
+              <li>Compared sales and freight by territory</li>
+              <li>Used decomposition tree for product/category analysis</li>
             </ul>
             <div class="tag-row">
-              <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Dashboard</span>
+              <span class="tag">Power BI</span><span class="tag">Sales Analysis</span><span class="tag">Products</span>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn" onclick="openDetailsModal('bikestoreModal')">Details</button>
             </div>
           </article>
 
-          <article class="card">
-            <h3>5. Tableau Visualization Project</h3>
-            <p>Created clear visual dashboards to compare performance across categories, regions, and time periods.</p>
+          <article class="project-card">
+            <h3>5. Bank Analysis Dashboard</h3>
+            <p>
+              Created a banking analysis dashboard to understand customer demographics, total balances,
+              regional performance, gender distribution, time trends, and the relationship between balance and age.
+            </p>
             <ul>
-              <li>Built visual comparisons</li>
-              <li>Used filters and dashboard actions</li>
-              <li>Presented insights in a simple visual story</li>
+              <li>Created customer, balance, and age KPIs</li>
+              <li>Analyzed customers and balance by gender and region</li>
+              <li>Visualized customer activity and balance patterns</li>
             </ul>
             <div class="tag-row">
-              <span class="tag">Tableau</span><span class="tag">Visualization</span><span class="tag">Storytelling</span>
+              <span class="tag">Power BI</span><span class="tag">Banking</span><span class="tag">Customer Analysis</span>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn" onclick="openDetailsModal('bankModal')">Details</button>
             </div>
           </article>
 
-          <article class="card">
-            <h3>6. Python EDA Project</h3>
-            <p>Used Python to explore datasets, generate summary statistics, visualize distributions, and detect data issues.</p>
+          <article class="project-card">
+            <h3>6. Marketing Platforms Analysis Dashboard</h3>
+            <p>
+              Designed a marketing analytics dashboard comparing Instagram, X, Facebook, and LinkedIn performance using
+              reach, likes, impressions, engagement, response metrics, and weekly trend analysis.
+            </p>
             <ul>
-              <li>Performed EDA using Pandas</li>
-              <li>Created charts and summaries</li>
-              <li>Extracted useful patterns from data</li>
+              <li>Compared platform reach and likes</li>
+              <li>Tracked impressions by week and platform</li>
+              <li>Created KPIs for engagement, responses, and post reach</li>
             </ul>
             <div class="tag-row">
-              <span class="tag">Python</span><span class="tag">EDA</span><span class="tag">Pandas</span>
+              <span class="tag">Power BI</span><span class="tag">Marketing Analytics</span><span class="tag">Social Media</span>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn" onclick="openDetailsModal('marketingModal')">Details</button>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="card">
-            <h3>7. Excel Pivot Table Analysis</h3>
-            <p>Used pivot tables and charts to answer business questions about revenue, channels, regions, and product performance.</p>
-            <ul>
-              <li>Created pivot tables and pivot charts</li>
-              <li>Analyzed percentages and category contribution</li>
-              <li>Prepared a simple report for decision-making</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">Excel</span><span class="tag">Pivot Tables</span><span class="tag">Reporting</span>
-            </div>
-          </article>
 
-          <article class="card">
-            <h3>More Projects Coming Soon</h3>
-            <p>I continue improving my portfolio by adding more projects, better dashboards, cleaner documentation, and GitHub repositories.</p>
-            <div class="tag-row">
-              <span class="tag">Portfolio</span><span class="tag">GitHub</span><span class="tag">Continuous Learning</span>
+    
+    <section id="internships">
+      <div class="container">
+        <h2 class="section-title">Internships & Training</h2>
+        <p class="section-subtitle">
+          Practical training programs that strengthened my data analysis, data science, and business intelligence skills.
+        </p>
+
+        <div class="training-wrapper">
+          <div class="training-card featured">
+            <div class="training-badge">Data Science Track</div>
+            <h3>DEPI Data Science Track by IBM</h3>
+            <p>
+              Completed a Data Science training track delivered through DEPI in collaboration with IBM,
+              focusing on Python, data analysis, machine learning concepts, data preparation, and project work.
+            </p>
+
+            <div class="training-meta">
+              <span><strong>Provider:</strong> DEPI / IBM</span>
+              <span><strong>Field:</strong> Data Science</span>
+              <span><strong>Focus:</strong> Python, Data Analysis, Machine Learning, Data Preparation</span>
             </div>
-          </article>
+
+            <div class="project-actions">
+              <button class="project-btn" onclick="openCertificateModal('depiCertificateModal')">View Certificate</button>
+            </div>
+          </div>
+
+          <div class="training-card">
+            <div class="training-badge">Data Analysis Track</div>
+            <h3>NTI Data Analysis Track</h3>
+            <p>
+              Completed a practical Data Analysis track at NTI, focused on the real-world data analysis workflow,
+              including Excel, SQL, Power BI, data cleaning, dashboards, and presenting insights from business data.
+            </p>
+
+            <div class="training-meta">
+              <span><strong>Provider:</strong> National Telecommunication Institute</span>
+              <span><strong>Field:</strong> Data Analysis</span>
+              <span><strong>Focus:</strong> Excel, SQL, Power BI, Data Cleaning, Dashboarding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">
+          Freelance experience focused on AI data annotation and data quality tasks across different online platforms.
+        </p>
+
+        <div class="experience-layout">
+          <div class="experience-summary">
+            <h3>Freelance AI Data Annotator</h3>
+            <p>
+              Worked as a freelancer on multiple platforms in AI data annotation tasks, helping improve datasets used for
+              training and evaluating machine learning models.
+            </p>
+
+            <div class="experience-points">
+              <div class="experience-point">
+                <span>1</span>
+                <div>Annotated, reviewed, and checked data quality for AI-related tasks.</div>
+              </div>
+              <div class="experience-point">
+                <span>2</span>
+                <div>Worked with structured guidelines and maintained consistency across tasks.</div>
+              </div>
+              <div class="experience-point">
+                <span>3</span>
+                <div>Gained practical experience in data labeling, evaluation, and accuracy-focused work.</div>
+              </div>
+            </div>
+
+            <div class="experience-tags">
+              <span class="tag">AI Data Annotation</span>
+              <span class="tag">Data Labeling</span>
+              <span class="tag">Quality Review</span>
+              <span class="tag">Freelance</span>
+            </div>
+          </div>
+
+          <div class="platform-grid">
+            <div class="platform-card">
+              <div class="platform-head">
+                <div class="platform-logo">
+                  <svg viewBox="0 0 24 24" role="img">
+                    <path d="M12 2 3 7v10l9 5 9-5V7l-9-5Zm0 2.3 6.7 3.7L12 11.7 5.3 8 12 4.3ZM5 9.8l6 3.3v6.1l-6-3.3V9.8Zm8 9.4v-6.1l6-3.3v6.1l-6 3.3Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>AI Annotation Platforms</h3>
+                  <small>Freelance Work</small>
+                </div>
+              </div>
+              <p>Completed annotation and review tasks for AI datasets through different online platforms.</p>
+            </div>
+
+            <div class="platform-card">
+              <div class="platform-head">
+                <div class="platform-logo">
+                  <svg viewBox="0 0 24 24" role="img">
+                    <path d="M9 3h6a2 2 0 0 1 2 2v1h2a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2V5a2 2 0 0 1 2-2Zm0 3h6V5H9v1Zm3 4 6 3.5V16l-6 3.5L6 16v-2.5L12 10Zm0 2.3-3.8 2.2L12 16.7l3.8-2.2L12 12.3Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Data Quality Tasks</h3>
+                  <small>Review & Validation</small>
+                </div>
+              </div>
+              <p>Focused on accuracy, consistency, and following task-specific labeling instructions.</p>
+            </div>
+
+            <div class="platform-card">
+              <div class="platform-head">
+                <div class="platform-logo">
+                  <svg viewBox="0 0 24 24" role="img">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 2.4 1.2 4.5 3 5.8V18a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3.2A7 7 0 0 0 12 2Zm2 14h-4v-2.3l-.5-.3A5 5 0 1 1 14.5 13l-.5.3V16Zm-4 6h4v-1h-4v1Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>AI Training Support</h3>
+                  <small>Dataset Preparation</small>
+                </div>
+              </div>
+              <p>Helped prepare cleaner labeled data that can support model training and evaluation.</p>
+            </div>
+
+            <div class="platform-card">
+              <div class="platform-head">
+                <div class="platform-logo">
+                  <svg viewBox="0 0 24 24" role="img">
+                    <path d="M12 1 3 5v6c0 5.6 3.8 10.7 9 12 5.2-1.3 9-6.4 9-12V5l-9-4Zm0 2.2 7 3.1V11c0 4.4-2.9 8.5-7 9.8-4.1-1.3-7-5.4-7-9.8V6.3l7-3.1Zm-1 12.3 6-6-1.4-1.4L11 12.7 8.4 10.1 7 11.5l4 4Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3>Guideline-Based Work</h3>
+                  <small>Consistency & Accuracy</small>
+                </div>
+              </div>
+              <p>Applied detailed instructions and quality standards to deliver consistent annotation results.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -876,6 +1608,305 @@
         </div>
       </div>
     </section>
+
+    <div id="restaurantModal" class="details-modal" aria-hidden="true">
+      <div class="details-content">
+        <button class="modal-close" onclick="closeDetailsModal('restaurantModal')" aria-label="Close">&times;</button>
+        <h2>Restaurant Data Analysis — NTI Final Project</h2>
+        <p>
+          A complete restaurant data analysis project combining Excel pivot analysis, SQL querying, Python EDA, and Power BI dashboarding.
+          The project focuses on sales, branches, customers, orders, menu items, payment methods, purchase types, and customer segmentation.
+        </p>
+
+        <div class="details-layout">
+          <div class="details-box">
+            <h3>Power BI Dashboard Part</h3>
+            <ul>
+              <li>Home page with key restaurant KPIs</li>
+              <li>Branches and sales analysis</li>
+              <li>Customer behavior and segmentation</li>
+              <li>Product, menu item, purchase type, and payment analysis</li>
+            </ul>
+          </div>
+          <div class="details-box">
+            <h3>Excel, SQL & Python Part</h3>
+            <ul>
+              <li>Excel pivot tables, slicers, and KPI summary</li>
+              <li>SQL queries for business questions, validation, and analysis</li>
+              <li>Python EDA for exploration, cleaning, and understanding patterns</li>
+              <li>Sales by menu item, payment method, customer segment, and purchase type</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="gallery-title">Power BI Dashboard Screens</h3>
+        <div class="project-gallery">
+          <div class="gallery-card">
+            <img src="assets/restaurant-dashboard-1.jpg" alt="Restaurant Dashboard Home Page">
+            <div class="gallery-caption">Home Page KPIs</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/restaurant-dashboard-2.jpg" alt="Restaurant Branches and Sales Dashboard">
+            <div class="gallery-caption">Branches and Sales Analysis</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/restaurant-dashboard-3.jpg" alt="Restaurant Customer Analysis Dashboard">
+            <div class="gallery-caption">Customer Analysis</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/restaurant-dashboard-4.jpg" alt="Restaurant Product and Payment Dashboard">
+            <div class="gallery-caption">Product and Payment Analysis</div>
+          </div>
+        </div>
+
+        <h3 class="gallery-title">Excel Pivot Table Analysis</h3>
+        <div class="project-gallery one-image">
+          <div class="gallery-card">
+            <img src="assets/restaurant-excel-analysis.png" alt="Restaurant Excel Pivot Table Analysis">
+            <div class="gallery-caption">Excel Pivot Tables, KPIs, and Slicers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hrModal" class="details-modal" aria-hidden="true">
+      <div class="details-content">
+        <button class="modal-close" onclick="closeDetailsModal('hrModal')" aria-label="Close">&times;</button>
+        <h2>HR Data Analysis Dashboard</h2>
+        <p>
+          HR dashboard designed to summarize employees, salaries, branches, jobs, gender distribution, pay type,
+          place of birth, and job distribution by gender.
+        </p>
+        <div class="details-layout">
+          <div class="details-box">
+            <h3>What I Analyzed</h3>
+            <ul>
+              <li>Total employees, salaries, branches, and jobs</li>
+              <li>Employee distribution by gender</li>
+              <li>Pay type analysis</li>
+              <li>Place of birth analysis</li>
+              <li>Job and gender comparison</li>
+            </ul>
+          </div>
+          <div class="details-box">
+            <h3>Tools & Skills</h3>
+            <ul>
+              <li>Power BI dashboard design</li>
+              <li>KPI cards and charts</li>
+              <li>Data cleaning and reporting</li>
+              <li>Business insight presentation</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="gallery-title">Project Screenshot</h3>
+        <div class="project-gallery one-image">
+          <div class="gallery-card">
+            <img src="assets/hr-dashboard.png" alt="HR Analysis Dashboard">
+            <div class="gallery-caption">HR Analysis Dashboard</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bikestoreModal" class="details-modal" aria-hidden="true">
+      <div class="details-content">
+        <button class="modal-close" onclick="closeDetailsModal('bikestoreModal')" aria-label="Close">&times;</button>
+        <h2>BikeStores Data Analysis Dashboard</h2>
+        <p>
+          Dashboard project for BikeStores sales analysis, focusing on KPIs, territory sales, product categories,
+          freight analysis, and decomposition tree exploration.
+        </p>
+        <div class="details-layout">
+          <div class="details-box">
+            <h3>Dashboard Insights</h3>
+            <ul>
+              <li>YTD, QTD, and total sales KPIs</li>
+              <li>Total cost and sales by territory</li>
+              <li>Product and category-level analysis</li>
+              <li>Freight and sales comparison</li>
+            </ul>
+          </div>
+          <div class="details-box">
+            <h3>Techniques Used</h3>
+            <ul>
+              <li>Power BI visuals and slicers</li>
+              <li>KPIs and trend analysis</li>
+              <li>Decomposition tree</li>
+              <li>Product hierarchy analysis</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="gallery-title">Project Screenshots</h3>
+        <div class="project-gallery">
+          <div class="gallery-card">
+            <img src="assets/bikestore-dashboard-1.png" alt="BikeStores Dashboard Main View">
+            <div class="gallery-caption">Main Sales Dashboard</div>
+          </div>
+          <div class="gallery-card">
+            <img src="assets/bikestore-dashboard-2.png" alt="BikeStores Decomposition Tree">
+            <div class="gallery-caption">Product Decomposition Tree</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bankModal" class="details-modal" aria-hidden="true">
+      <div class="details-content">
+        <button class="modal-close" onclick="closeDetailsModal('bankModal')" aria-label="Close">&times;</button>
+        <h2>Bank Analysis Dashboard</h2>
+        <p>
+          Banking analysis dashboard focused on customer demographics, total balances, gender distribution,
+          regional performance, and customer behavior over time.
+        </p>
+        <div class="details-layout">
+          <div class="details-box">
+            <h3>What I Analyzed</h3>
+            <ul>
+              <li>Average age, total balance, and number of customers</li>
+              <li>Customers by gender</li>
+              <li>Balance by region and gender</li>
+              <li>Customer trend over time</li>
+              <li>Balance and age by customer ID</li>
+            </ul>
+          </div>
+          <div class="details-box">
+            <h3>Skills Used</h3>
+            <ul>
+              <li>Power BI dashboarding</li>
+              <li>Customer analytics</li>
+              <li>KPI design</li>
+              <li>Visual storytelling</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="gallery-title">Project Screenshot</h3>
+        <div class="project-gallery one-image">
+          <div class="gallery-card">
+            <img src="assets/bank-analysis-dashboard.png" alt="Bank Analysis Dashboard">
+            <div class="gallery-caption">Bank Analysis Dashboard</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="marketingModal" class="details-modal" aria-hidden="true">
+      <div class="details-content">
+        <button class="modal-close" onclick="closeDetailsModal('marketingModal')" aria-label="Close">&times;</button>
+        <h2>Marketing Platforms Analysis Dashboard</h2>
+        <p>
+          Marketing dashboard comparing social media platforms including Instagram, X, Facebook, and LinkedIn
+          using reach, likes, impressions, engagement, and response metrics.
+        </p>
+        <div class="details-layout">
+          <div class="details-box">
+            <h3>What I Analyzed</h3>
+            <ul>
+              <li>Post reach by platform</li>
+              <li>Likes by platform</li>
+              <li>Impressions by week and platform</li>
+              <li>Engagement, responses, likes, and reach KPIs</li>
+            </ul>
+          </div>
+          <div class="details-box">
+            <h3>Skills Used</h3>
+            <ul>
+              <li>Marketing analytics</li>
+              <li>Power BI KPI cards</li>
+              <li>Platform comparison</li>
+              <li>Trend analysis and visualization</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="gallery-title">Project Screenshot</h3>
+        <div class="project-gallery one-image">
+          <div class="gallery-card">
+            <img src="assets/marketing-platforms-dashboard.png" alt="Marketing Platforms Dashboard">
+            <div class="gallery-caption">Marketing Platforms Dashboard</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="sqlFinalModal" class="details-modal" aria-hidden="true">
+      <div class="details-content">
+        <button class="modal-close" onclick="closeDetailsModal('sqlFinalModal')" aria-label="Close">&times;</button>
+        <h2>BikeStores SQL Analysis — NTI Final Project</h2>
+        <p>
+          This project focused on analyzing the BikeStores database using SQL Server. I used relational database
+          concepts to answer business questions about customers, orders, sales revenue, stores, staff, brands,
+          categories, and product performance.
+        </p>
+        <div class="details-layout">
+          <div class="details-box">
+            <h3>What I Worked On</h3>
+            <ul>
+              <li>Explored BikeStores sales and production schemas</li>
+              <li>Joined customers, orders, order items, stores, staff, brands, categories, and products</li>
+              <li>Analyzed revenue, order status, product performance, and store performance</li>
+              <li>Used grouping, filtering, aggregation, and sorting to extract insights</li>
+            </ul>
+          </div>
+          <div class="details-box">
+            <h3>SQL Skills Used</h3>
+            <ul>
+              <li>SQL Server</li>
+              <li>INNER JOIN and relational table analysis</li>
+              <li>GROUP BY, HAVING, ORDER BY, and aggregate functions</li>
+              <li>Business questions translation into SQL queries</li>
+              <li>Data validation and insight extraction</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div id="depiFinalModal" class="details-modal" aria-hidden="true">
+      <div class="details-content">
+        <button class="modal-close" onclick="closeDetailsModal('depiFinalModal')" aria-label="Close">&times;</button>
+        <h2>DEPI Final Project — Heart Disease Prediction</h2>
+        <p>
+          This machine learning project analyzed a heart disease dataset through data cleaning, exploratory analysis,
+          visualization, model development, optimization, and evaluation. No project photos are required for this section.
+        </p>
+        <div class="details-layout">
+          <div class="details-box">
+            <h3>Project Workflow</h3>
+            <ul>
+              <li>Loaded and explored the heart disease dataset</li>
+              <li>Checked missing values and duplicates</li>
+              <li>Created AgeGroup and CholGroup features</li>
+              <li>Analyzed relationships between medical features and heart disease</li>
+              <li>Used SMOTE and PCA during model development</li>
+              <li>Optimized models using GridSearchCV</li>
+            </ul>
+          </div>
+          <div class="details-box">
+            <h3>Models & Result</h3>
+            <ul>
+              <li>Compared SVM RBF, XGBoost, Random Forest, and MLP</li>
+              <li>Best optimized model: SVM RBF</li>
+              <li>Final accuracy around 72.38%</li>
+              <li>Used classification report and confusion matrix for evaluation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="depiCertificateModal" class="certificate-modal" aria-hidden="true">
+      <div class="certificate-content">
+        <button class="modal-close" onclick="closeCertificateModal('depiCertificateModal')" aria-label="Close certificate">&times;</button>
+        <h2>DEPI Data Science Track by IBM Certificate</h2>
+        <img src="assets/depi-certificate.png" alt="DEPI Data Science Track by IBM Certificate">
+        <div class="certificate-note">
+          Upload your DEPI certificate inside the assets folder and name it exactly: depi-certificate.png
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer>
@@ -883,5 +1914,71 @@
       © 2026 Seif Eldeen Gamal Zahra. All Rights Reserved.
     </div>
   </footer>
+
+  <script>
+    function openDetailsModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeDetailsModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", function(event) {
+      if (event.target.classList.contains("details-modal")) {
+        closeDetailsModal(event.target.id);
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        document.querySelectorAll(".details-modal.active").forEach(function(modal) {
+          closeDetailsModal(modal.id);
+        });
+      }
+    });
+  </script>
+
+
+  <script>
+    function openCertificateModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCertificateModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", function(event) {
+      if (event.target.classList.contains("certificate-modal")) {
+        closeCertificateModal(event.target.id);
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        document.querySelectorAll(".certificate-modal.active").forEach(function(modal) {
+          closeCertificateModal(modal.id);
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
