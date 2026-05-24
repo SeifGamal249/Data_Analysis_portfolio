@@ -1058,6 +1058,114 @@
       gap: 8px;
       margin-top: 14px;
     }
+    .usp-highlight-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.92));
+  border: 1px solid rgba(217, 231, 255, 0.95);
+  border-radius: 30px;
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 18px 42px rgba(37, 99, 235, 0.10);
+}
+
+.usp-highlight-card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -90px;
+  top: -90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.28), rgba(37, 99, 235, 0.08), transparent 70%);
+}
+
+.usp-badge {
+  display: inline-flex;
+  padding: 7px 13px;
+  border-radius: 999px;
+  color: var(--blue);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 900;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.usp-highlight-card h3,
+.usp-highlight-card p {
+  position: relative;
+  z-index: 1;
+}
+
+.usp-highlight-card h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.usp-highlight-card p {
+  color: var(--muted);
+  max-width: 920px;
+}
+
+.usp-question-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.usp-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(217, 231, 255, 0.95);
+  border-radius: 26px;
+  padding: 26px;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
+  transition: 0.25s ease;
+}
+
+.usp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(37, 99, 235, 0.16);
+}
+
+.usp-card.featured {
+  background: linear-gradient(135deg, rgba(37,99,235,0.10), rgba(56,189,248,0.12), rgba(255,255,255,0.92));
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.usp-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-2));
+  color: #ffffff;
+  font-weight: 900;
+  margin-bottom: 16px;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.18);
+}
+
+.usp-card h3 {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.usp-card p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .usp-question-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
     @media (max-width: 860px) {
       .experience-layout,
@@ -1195,37 +1303,54 @@
       </div>
     </section>
 
-    <section id="usp">
-      <div class="container">
-        <h2 class="section-title">My USP</h2>
-        <p class="section-subtitle">
-          What makes me different as a junior data analyst is my mix of engineering thinking, hands-on tools, and end-to-end project practice.
+<section id="usp">
+  <div class="container">
+    <h2 class="section-title">What Makes Me Different</h2>
+    <p class="section-subtitle">
+      My unique value is combining an engineering mindset with a complete data analysis workflow,
+      from raw data to clear business insights.
+    </p>
+
+    <div class="usp-highlight-card">
+      <div class="usp-badge">My USP</div>
+      <h3>Engineering Mindset + Full Data Workflow</h3>
+      <p>
+        I do not only build dashboards. I understand the business question, clean and prepare the data,
+        analyze it using SQL and Python, build clear Excel and Power BI reports, and explain the final
+        insights in a simple way that supports decision-making.
+      </p>
+    </div>
+
+    <div class="usp-question-grid">
+      <div class="usp-card">
+        <div class="usp-icon">01</div>
+        <h3>What Customers Want</h3>
+        <p>
+          Businesses need someone who can understand the problem, clean messy data, analyze it correctly,
+          and present insights in a simple dashboard or report that helps them make better decisions.
         </p>
-
-        <div class="grid grid-3">
-          <div class="card">
-            <h3>Engineering Mindset</h3>
-            <p>
-              My electrical engineering background helps me think logically, break complex problems into steps, and validate results carefully.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>End-to-End Analysis</h3>
-            <p>
-              I do not only create charts. I work through the full data process from cleaning and preparation to insights and dashboard storytelling.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Multi-Tool Flexibility</h3>
-            <p>
-              I can analyze and present data using Excel, SQL, Power BI, Tableau, and Python depending on the project requirements.
-            </p>
-          </div>
-        </div>
       </div>
-    </section>
+
+      <div class="usp-card featured">
+        <div class="usp-icon">02</div>
+        <h3>What I Do Well</h3>
+        <p>
+          I work across the full data workflow: Excel analysis, SQL querying, Python EDA, data cleaning,
+          KPI building, Power BI dashboards, and business storytelling.
+        </p>
+      </div>
+
+      <div class="usp-card">
+        <div class="usp-icon">03</div>
+        <h3>What Competitors Do Well</h3>
+        <p>
+          Many beginners can use one tool or create charts, but not all of them can connect the full process
+          from raw data to validated insights and clear business recommendations.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="skills">
       <div class="container">
