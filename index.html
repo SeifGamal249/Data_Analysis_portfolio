@@ -1058,76 +1058,111 @@
       gap: 8px;
       margin-top: 14px;
     }
-.usp-simple-box {
+.usp-highlight-card {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.92));
   border: 1px solid rgba(217, 231, 255, 0.95);
-  border-radius: 28px;
-  padding: 30px;
-  margin-bottom: 22px;
+  border-radius: 30px;
+  padding: 32px;
+  margin-bottom: 24px;
   box-shadow: 0 18px 42px rgba(37, 99, 235, 0.10);
 }
 
-.usp-label {
-  display: inline-block;
+.usp-highlight-card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -90px;
+  top: -90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.28), rgba(37, 99, 235, 0.08), transparent 70%);
+}
+
+.usp-badge {
+  display: inline-flex;
   padding: 7px 13px;
   border-radius: 999px;
-  background: rgba(37, 99, 235, 0.08);
   color: var(--blue);
+  background: rgba(37, 99, 235, 0.08);
   border: 1px solid var(--border);
   font-size: 13px;
   font-weight: 900;
   margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
 }
 
-.usp-simple-box h3 {
+.usp-highlight-card h3,
+.usp-highlight-card p {
+  position: relative;
+  z-index: 1;
+}
+
+.usp-highlight-card h3 {
   font-size: 28px;
   margin-bottom: 10px;
   color: var(--text);
 }
 
-.usp-simple-box p {
+.usp-highlight-card p {
   color: var(--muted);
-  max-width: 900px;
+  max-width: 920px;
 }
 
-.usp-simple-grid {
+.usp-question-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.usp-simple-card {
+.usp-card {
+  position: relative;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(217, 231, 255, 0.95);
-  border-radius: 24px;
-  padding: 24px;
+  border-radius: 26px;
+  padding: 26px;
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
   transition: 0.25s ease;
 }
 
-.usp-simple-card:hover {
-  transform: translateY(-5px);
+.usp-card:hover {
+  transform: translateY(-6px);
   box-shadow: 0 22px 48px rgba(37, 99, 235, 0.16);
 }
 
-.usp-simple-card.active {
-  background: linear-gradient(135deg, rgba(37,99,235,0.10), rgba(56,189,248,0.12), rgba(255,255,255,0.94));
-  border-color: rgba(37, 99, 235, 0.28);
+.usp-card.featured {
+  background: linear-gradient(135deg, rgba(37,99,235,0.10), rgba(56,189,248,0.12), rgba(255,255,255,0.92));
+  border-color: rgba(37, 99, 235, 0.25);
 }
 
-.usp-simple-card h3 {
+.usp-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-2));
+  color: #ffffff;
+  font-weight: 900;
+  margin-bottom: 16px;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.18);
+}
+
+.usp-card h3 {
+  margin-bottom: 10px;
   color: var(--text);
-  margin-bottom: 8px;
-  font-size: 20px;
 }
 
-.usp-simple-card p {
+.usp-card p {
   color: var(--muted);
   font-size: 15px;
 }
 
 @media (max-width: 900px) {
-  .usp-simple-grid {
+  .usp-question-grid {
     grid-template-columns: 1fr;
   }
 }
