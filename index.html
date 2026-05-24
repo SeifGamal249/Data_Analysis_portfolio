@@ -1431,6 +1431,9 @@
             <div class="tag-row">
               <span class="tag">SQL</span><span class="tag">SQL Server</span><span class="tag">BikeStores DB</span><span class="tag">Business Analysis</span>
             </div>
+            <div class="project-actions">
+              <button class="project-btn" onclick="openDetailsModal('sqlFinalModal')">Details</button>
+            </div>
           </article>
 
           <article class="project-card">
@@ -1987,41 +1990,62 @@
     </div>
     </div>
 
+    
     <div id="depiFinalModal" class="details-modal" aria-hidden="true">
       <div class="details-content">
         <button class="modal-close" onclick="closeDetailsModal('depiFinalModal')" aria-label="Close">&times;</button>
+
         <h2>DEPI Final Project — Heart Disease Prediction</h2>
         <p>
-          This machine learning project analyzed a heart disease dataset through data cleaning, exploratory analysis,
-          visualization, model development, optimization, and evaluation. No project photos are required for this section.
+          This machine learning project analyzes a heart disease dataset through data cleaning,
+          exploratory data analysis, visualization, model development, optimization, and evaluation.
+          The goal was to connect EDA insights with model performance and select the best final classifier.
         </p>
+
         <div class="details-layout">
           <div class="details-box">
             <h3>Project Workflow</h3>
             <ul>
               <li>Loaded and explored the heart disease dataset</li>
-              <li>Checked missing values and duplicates</li>
+              <li>Checked missing values and duplicate records</li>
               <li>Created AgeGroup and CholGroup features</li>
-              <li>Analyzed relationships between medical features and heart disease</li>
-              <li>Used SMOTE and PCA during model development</li>
-              <li>Optimized models using GridSearchCV</li>
+              <li>Analyzed features such as age, cholesterol, chest pain, oldpeak, slope, ca, and thalach</li>
+              <li>Applied scaling, SMOTE, PCA, and GridSearchCV</li>
             </ul>
           </div>
+
           <div class="details-box">
             <h3>Models & Result</h3>
             <ul>
-              <li>Compared SVM RBF, XGBoost, Random Forest, and MLP</li>
+              <li>Compared SVM RBF, XGBoost, Random Forest, and MLP Neural Network</li>
+              <li>Evaluated models using accuracy, precision, recall, F1-score, ROC-AUC, and confusion matrix</li>
               <li>Best optimized model: SVM RBF</li>
               <li>Final accuracy around 72.38%</li>
-              <li>Used classification report and confusion matrix for evaluation</li>
             </ul>
+          </div>
+        </div>
+
+        <h3 class="gallery-title">Project Screenshots</h3>
+        <div class="project-gallery">
+          <div class="gallery-card">
+            <img src="assets/depi-heart-1.png" alt="Heart Disease EDA Screenshot">
+            <div class="gallery-caption">EDA and Feature Analysis</div>
+          </div>
+
+          <div class="gallery-card">
+            <img src="assets/depi-heart-2.png" alt="Heart Disease Model Comparison Screenshot">
+            <div class="gallery-caption">Model Comparison</div>
+          </div>
+
+          <div class="gallery-card">
+            <img src="assets/depi-heart-3.png" alt="Heart Disease Final Evaluation Screenshot">
+            <div class="gallery-caption">Final Model Evaluation</div>
           </div>
         </div>
       </div>
     </div>
 
-
-    <div id="depiCertificateModal" class="certificate-modal" aria-hidden="true">
+<div id="depiCertificateModal" class="certificate-modal" aria-hidden="true">
       <div class="certificate-content">
         <button class="modal-close" onclick="closeCertificateModal('depiCertificateModal')" aria-label="Close certificate">&times;</button>
         <h2>DEPI Data Science Track by IBM Certificate</h2>
